@@ -1,16 +1,16 @@
 #ifndef CONTAINER_CONTAINER_H
 #define CONTAINER_CONTAINER_H
 
-#include <memory>       // For std::allocator, std::addressof
-#include <cstddef>      // For std::ptrdiff_t, std::size_t
-#include <iterator>     // For std::bidirectional_iterator_tag
-#include <stdexcept>    // For exceptions
-#include <initializer_list> // For std::initializer_list
-#include <type_traits>  // For std::conditional_t, std::enable_if_t
-#include <algorithm>    // For std::swap
-#include <random>       // For random level generation (std::mt19937, std::uniform_real_distribution)
-#include <chrono>       // For seeding random number generator (std::chrono::high_resolution_clock)
-#include <iostream>     // Potentially for debugging or if print_container is moved here, but generally not needed for core container
+#include <memory>
+#include <cstddef>
+#include <iterator>
+#include <stdexcept>
+#include <initializer_list>
+#include <type_traits>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include <iostream>
 
 #include "container/nodes/node.h"
 
@@ -139,8 +139,8 @@ private:
     }
 
     void destroy_container_nodes() {
-        if (sentinel_node == nullptr) { // Check if sentinel_node is valid before attempting to destroy
-            if (skip_list_heads != nullptr) { // If sentinel is null, but heads exist, implies invalid state. Clean up.
+        if (sentinel_node == nullptr) {
+            if (skip_list_heads != nullptr) {
                 delete[] skip_list_heads;
                 skip_list_heads = nullptr;
             }
@@ -156,7 +156,7 @@ private:
         destroy_and_deallocate_node(sentinel_node);
         sentinel_node = nullptr;
 
-        delete[] skip_list_heads; // This should always be safe as it's either nullptr or valid
+        delete[] skip_list_heads;
         skip_list_heads = nullptr;
     }
 
@@ -177,8 +177,8 @@ private:
             rng = std::move(other.rng);
             dist = std::move(other.dist);
 
-            // Re-initialize 'other' to a valid empty state
-            other.initialize_container(); // <-- ИСПРАВЛЕНИЕ 1: Инициализируем other
+
+            other.initialize_container();
         } else if (node_allocator == other.node_allocator) {
             destroy_container_nodes();
             sentinel_node = other.sentinel_node;
@@ -188,8 +188,8 @@ private:
             rng = std::move(other.rng);
             dist = std::move(other.dist);
 
-            // Re-initialize 'other' to a valid empty state
-            other.initialize_container(); // <-- ИСПРАВЛЕНИЕ 2: Инициализируем other
+
+            other.initialize_container();
         } else {
             this->clear();
             copy_container_nodes_from(other);
@@ -372,7 +372,7 @@ public:
         copy_container_nodes_from(other);
     }
 
-    // Move Constructor
+
     Container(Container&& other) noexcept :
         node_allocator(std::move(other.node_allocator)),
         sentinel_node(other.sentinel_node),
@@ -382,12 +382,11 @@ public:
         rng(std::move(other.rng)),
         dist(std::move(other.dist))
     {
-        // Reset other's state to a valid, empty, destructible state
-        // Re-initialize 'other' as an empty container
-        other.sentinel_node = nullptr; // Temporarily nullify to avoid double deletion during other.initialize_container()
-        other.skip_list_heads = nullptr; // Temporarily nullify to avoid double deletion
-        other.initialize_container(); // <-- ИСПРАВЛЕНИЕ 3: Инициализируем other
-        other.num_elements = 0; // ensure num_elements is zero
+
+        other.sentinel_node = nullptr;
+        other.skip_list_heads = nullptr;
+        other.initialize_container();
+        other.num_elements = 0;
     }
 
     Container(Container&& other, const Allocator& alloc) :
@@ -408,10 +407,10 @@ public:
             rng = std::move(other.rng);
             dist = std::move(other.dist);
 
-            // Re-initialize 'other' to a valid empty state
-            other.sentinel_node = nullptr; // Temporarily nullify
-            other.skip_list_heads = nullptr; // Temporarily nullify
-            other.initialize_container(); // <-- ИСПРАВЛЕНИЕ 4: Инициализируем other
+
+            other.sentinel_node = nullptr;
+            other.skip_list_heads = nullptr;
+            other.initialize_container();
             other.num_elements = 0;
         } else {
             copy_container_nodes_from(other);
@@ -482,17 +481,17 @@ public:
     }
 
     iterator begin() noexcept {
-        // Ensure sentinel_node is not null before dereferencing
+
         if (sentinel_node == nullptr) {
-            return iterator(nullptr); // Return a null iterator for safety
+            return iterator(nullptr);
         }
         return iterator(sentinel_node->next);
     }
 
     const_iterator begin() const noexcept {
-        // Ensure sentinel_node is not null before dereferencing
+
         if (sentinel_node == nullptr) {
-            return const_iterator(nullptr); // Return a null iterator for safety
+            return const_iterator(nullptr);
         }
         return const_iterator(sentinel_node->next);
     }
@@ -505,9 +504,9 @@ public:
     }
 
     iterator end() noexcept {
-        // Ensure sentinel_node is not null before returning
+
         if (sentinel_node == nullptr) {
-            return iterator(nullptr); // Return a null iterator for safety
+            return iterator(nullptr);
         }
         return iterator(sentinel_node);
     }
@@ -527,9 +526,9 @@ public:
     }
 
     bool empty() const noexcept {
-        // Correctly handle case where sentinel_node might be null (e.g., just after move-from but before re-initialization)
+
         if (sentinel_node == nullptr) {
-            return true; // If no sentinel, it's definitively empty
+            return true;
         }
         return num_elements == 0;
     }
