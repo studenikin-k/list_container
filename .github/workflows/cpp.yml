@@ -33,7 +33,7 @@ jobs:
         run: cmake --build build
 
       - name: Run Main Executable
-        run: ./build/main
+        run: ./build/list_container
 
       - name: Run Tests
         run: |
