@@ -1,0 +1,70 @@
+\doxysection{node.\+h}
+\hypertarget{node_8h_source}{}\label{node_8h_source}\index{include/container/nodes/node.h@{include/container/nodes/node.h}}
+\mbox{\hyperlink{node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ container/nodes/node.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ CONTAINER\_NODES\_NODE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ CONTAINER\_NODES\_NODE\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstddef>}\ \textcolor{comment}{//\ Для\ std::size\_t}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <utility>}\ \textcolor{comment}{//\ Для\ std::move}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNode}{Node}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ T\ \mbox{\hyperlink{structNode_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{structNode}{Node<T>}}*\ \mbox{\hyperlink{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}{next}};\ \textcolor{comment}{//\ For\ DLL\ part}}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{structNode}{Node<T>}}*\ \mbox{\hyperlink{structNode_ac953360c5f7ffae6ad13762189d34d9c}{prev}};\ \textcolor{comment}{//\ For\ DLL\ part}}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{structNode}{Node<T>}}**\ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}};\ \textcolor{comment}{//\ For\ Skip\ List\ part}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNode_ad4faafe22a45be006faefd1900842dd4}{level}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structNode_ae7f5c7fececab506f1bad5b3acf504cf}{is\_sentinel}};\ \textcolor{comment}{//\ True\ if\ it's\ the\ sentinel\ node}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Убедитесь,\ что\ MAX\_SKIP\_LEVEL\ определен\ где-\/то,\ например,\ в\ Container}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ или\ передан\ как\ параметр\ шаблона\ в\ Node,\ если\ Node\ не\ инстанцируется\ в\ Container.}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Для\ простоты,\ если\ MAX\_SKIP\_LEVEL\ константа,\ ее\ можно\ захардкодить\ здесь,}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ но\ лучше\ использовать\ значение\ из\ Container.}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Допустим,\ она\ будет\ 16,\ как\ в\ Container.}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}}\ =\ 16;\ \textcolor{comment}{//\ Должен\ совпадать\ с\ Container::MAX\_SKIP\_LEVEL}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Constructor\ for\ regular\ nodes}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structNode_ad56e57646a4962ffe6d20d01144721ea}{Node}}(\textcolor{keyword}{const}\ T\&\ val,\ \textcolor{keywordtype}{int}\ node\_level)\ :}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a01b9071c0de774c720b64583262d1559}{value}}(val),\ \mbox{\hyperlink{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}{next}}(nullptr),\ \mbox{\hyperlink{structNode_ac953360c5f7ffae6ad13762189d34d9c}{prev}}(nullptr),\ \mbox{\hyperlink{structNode_ad4faafe22a45be006faefd1900842dd4}{level}}(node\_level),\ \mbox{\hyperlink{structNode_ae7f5c7fececab506f1bad5b3acf504cf}{is\_sentinel}}(false)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structNode}{Node<T>}}*[\mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}}];\ \textcolor{comment}{//\ Выделяем\ память\ для\ всех\ уровней}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}};\ ++i)\ \{\ \textcolor{comment}{//\ Инициализируем\ все\ nullptr}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}[i]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Constructor\ for\ regular\ nodes\ (move)}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structNode_a62ec41f14327b040f7a545d63cb74302}{Node}}(T\&\&\ val,\ \textcolor{keywordtype}{int}\ node\_level)\ :}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a01b9071c0de774c720b64583262d1559}{value}}(std::move(val)),\ \mbox{\hyperlink{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}{next}}(nullptr),\ \mbox{\hyperlink{structNode_ac953360c5f7ffae6ad13762189d34d9c}{prev}}(nullptr),\ \mbox{\hyperlink{structNode_ad4faafe22a45be006faefd1900842dd4}{level}}(node\_level),\ \mbox{\hyperlink{structNode_ae7f5c7fececab506f1bad5b3acf504cf}{is\_sentinel}}(false)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structNode}{Node<T>}}*[\mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}}];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}};\ ++i)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}[i]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Constructor\ for\ sentinel\ node}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{structNode_aa77a9b0a2c29db29f213194a58e55779}{Node}}(\textcolor{keywordtype}{bool}\ sentinel\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{int}\ node\_level\ =\ \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}})\ :\ \textcolor{comment}{//\ Sentinel\ всегда\ имеет\ MAX\_NODE\_LEVEL}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a01b9071c0de774c720b64583262d1559}{value}}(T()),\ \mbox{\hyperlink{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}{next}}(nullptr),\ \mbox{\hyperlink{structNode_ac953360c5f7ffae6ad13762189d34d9c}{prev}}(nullptr),\ \mbox{\hyperlink{structNode_ad4faafe22a45be006faefd1900842dd4}{level}}(node\_level),\ \mbox{\hyperlink{structNode_ae7f5c7fececab506f1bad5b3acf504cf}{is\_sentinel}}(sentinel)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structNode}{Node<T>}}*[\mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}}];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\_NODE\_LEVEL}};\ ++i)\ \{\ \textcolor{comment}{//\ Инициализируем\ все\ nullptr}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}[i]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{structNode_ae923d0417581dd19784d55b901f0f7f0}{\string~Node}}()\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}};}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Удаляем\ конструктор\ копирования\ и\ оператор\ присваивания\ копированием,}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ чтобы\ избежать\ двойного\ удаления\ или\ некорректного\ копирования.}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Nodes\ должны\ управляться\ аллокатором\ контейнера.}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{structNode_ac949a08e80b9beb215d614b47a8c422c}{Node}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structNode}{Node}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\&\ \mbox{\hyperlink{structNode_aa9fe3e0f304f32b887cdad86eb657522}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structNode}{Node}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{structNode_a8093fe78fb4bcd7b84420092513f717d}{Node}}(\mbox{\hyperlink{structNode}{Node}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\&\ \mbox{\hyperlink{structNode_a734f4e900130eb6630b9b4d0f1c1b6f7}{operator=}}(\mbox{\hyperlink{structNode}{Node}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CONTAINER\_NODES\_NODE\_H}}
+
+\end{DoxyCode}
