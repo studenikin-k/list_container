@@ -1,0 +1,164 @@
+\doxysection{Node\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structNode}{}\label{structNode}\index{Node$<$ T $>$@{Node$<$ T $>$}}
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structNode_ad56e57646a4962ffe6d20d01144721ea}{Node}} (const T \&val, int node\+\_\+level)
+\item 
+\mbox{\hyperlink{structNode_a62ec41f14327b040f7a545d63cb74302}{Node}} (T \&\&val, int node\+\_\+level)
+\item 
+\mbox{\hyperlink{structNode_aa77a9b0a2c29db29f213194a58e55779}{Node}} (bool sentinel=true, int node\+\_\+level=\mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\+\_\+\+NODE\+\_\+\+LEVEL}})
+\item 
+\mbox{\hyperlink{structNode_ae923d0417581dd19784d55b901f0f7f0}{\texorpdfstring{$\sim$}{\string~}\+Node}} ()
+\item 
+\mbox{\hyperlink{structNode_ac949a08e80b9beb215d614b47a8c422c}{Node}} (const \mbox{\hyperlink{structNode}{Node}} \&)=delete
+\item 
+\mbox{\hyperlink{structNode}{Node}} \& \mbox{\hyperlink{structNode_aa9fe3e0f304f32b887cdad86eb657522}{operator=}} (const \mbox{\hyperlink{structNode}{Node}} \&)=delete
+\item 
+\mbox{\hyperlink{structNode_a8093fe78fb4bcd7b84420092513f717d}{Node}} (\mbox{\hyperlink{structNode}{Node}} \&\&)=delete
+\item 
+\mbox{\hyperlink{structNode}{Node}} \& \mbox{\hyperlink{structNode_a734f4e900130eb6630b9b4d0f1c1b6f7}{operator=}} (\mbox{\hyperlink{structNode}{Node}} \&\&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{structNode_a01b9071c0de774c720b64583262d1559}{value}}
+\item 
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}{next}}
+\item 
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode_ac953360c5f7ffae6ad13762189d34d9c}{prev}}
+\item 
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode_a05fe91637685a60922b3f57a8dd4c04f}{forward}}
+\item 
+int \mbox{\hyperlink{structNode_ad4faafe22a45be006faefd1900842dd4}{level}}
+\item 
+bool \mbox{\hyperlink{structNode_ae7f5c7fececab506f1bad5b3acf504cf}{is\+\_\+sentinel}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\+\_\+\+NODE\+\_\+\+LEVEL}} = 16
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structNode_ad56e57646a4962ffe6d20d01144721ea}\label{structNode_ad56e57646a4962ffe6d20d01144721ea} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\mbox{\hyperlink{structNode}{\+::\+Node}} (\begin{DoxyParamCaption}\item[{const T \&}]{val,  }\item[{int}]{node\+\_\+level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structNode_a62ec41f14327b040f7a545d63cb74302}\label{structNode_a62ec41f14327b040f7a545d63cb74302} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\mbox{\hyperlink{structNode}{\+::\+Node}} (\begin{DoxyParamCaption}\item[{T \&\&}]{val,  }\item[{int}]{node\+\_\+level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structNode_aa77a9b0a2c29db29f213194a58e55779}\label{structNode_aa77a9b0a2c29db29f213194a58e55779} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\mbox{\hyperlink{structNode}{\+::\+Node}} (\begin{DoxyParamCaption}\item[{bool}]{sentinel = {\ttfamily true},  }\item[{int}]{node\+\_\+level = {\ttfamily \mbox{\hyperlink{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}{MAX\+\_\+\+NODE\+\_\+\+LEVEL}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structNode_ae923d0417581dd19784d55b901f0f7f0}\label{structNode_ae923d0417581dd19784d55b901f0f7f0} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!````~Node@{\texorpdfstring{$\sim$}{\string~}Node}}
+\index{````~Node@{\texorpdfstring{$\sim$}{\string~}Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Node()}{\string~Node()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{structNode}{Node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structNode_ac949a08e80b9beb215d614b47a8c422c}\label{structNode_ac949a08e80b9beb215d614b47a8c422c} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\mbox{\hyperlink{structNode}{\+::\+Node}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structNode_a8093fe78fb4bcd7b84420092513f717d}\label{structNode_a8093fe78fb4bcd7b84420092513f717d} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$ T $>$\mbox{\hyperlink{structNode}{\+::\+Node}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structNode_aa9fe3e0f304f32b887cdad86eb657522}\label{structNode_aa9fe3e0f304f32b887cdad86eb657522} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}} \& \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structNode_a734f4e900130eb6630b9b4d0f1c1b6f7}\label{structNode_a734f4e900130eb6630b9b4d0f1c1b6f7} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}} \& \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNode}{Node}}$<$ T $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structNode_a05fe91637685a60922b3f57a8dd4c04f}\label{structNode_a05fe91637685a60922b3f57a8dd4c04f} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!forward@{forward}}
+\index{forward@{forward}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{forward}{forward}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$T$>$\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::forward}
+
+\Hypertarget{structNode_ae7f5c7fececab506f1bad5b3acf504cf}\label{structNode_ae7f5c7fececab506f1bad5b3acf504cf} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!is\_sentinel@{is\_sentinel}}
+\index{is\_sentinel@{is\_sentinel}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_sentinel}{is\_sentinel}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::is\+\_\+sentinel}
+
+\Hypertarget{structNode_ad4faafe22a45be006faefd1900842dd4}\label{structNode_ad4faafe22a45be006faefd1900842dd4} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!level@{level}}
+\index{level@{level}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::level}
+
+\Hypertarget{structNode_a5509922ab8275faa8d251c4dbd1a0c4f}\label{structNode_a5509922ab8275faa8d251c4dbd1a0c4f} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!MAX\_NODE\_LEVEL@{MAX\_NODE\_LEVEL}}
+\index{MAX\_NODE\_LEVEL@{MAX\_NODE\_LEVEL}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MAX\_NODE\_LEVEL}{MAX\_NODE\_LEVEL}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr int \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::\+MAX\+\_\+\+NODE\+\_\+\+LEVEL = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{structNode_a8bedac90cd0aedd2847dd49f671d4d4a}\label{structNode_a8bedac90cd0aedd2847dd49f671d4d4a} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!next@{next}}
+\index{next@{next}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$T$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::next}
+
+\Hypertarget{structNode_ac953360c5f7ffae6ad13762189d34d9c}\label{structNode_ac953360c5f7ffae6ad13762189d34d9c} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!prev@{prev}}
+\index{prev@{prev}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structNode}{Node}}$<$T$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::prev}
+
+\Hypertarget{structNode_a01b9071c0de774c720b64583262d1559}\label{structNode_a01b9071c0de774c720b64583262d1559} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!value@{value}}
+\index{value@{value}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{structNode}{Node}}$<$ T $>$\+::value}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/container/nodes/\mbox{\hyperlink{node_8h}{node.\+h}}\end{DoxyCompactItemize}

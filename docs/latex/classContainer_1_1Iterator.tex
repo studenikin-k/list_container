@@ -1,0 +1,252 @@
+\doxysection{Container\texorpdfstring{$<$}{<} T, Allocator \texorpdfstring{$>$}{>}\+::Iterator\texorpdfstring{$<$}{<} Is\+Const \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classContainer_1_1Iterator}{}\label{classContainer_1_1Iterator}\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+
+
+{\ttfamily \#include $<$container.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_af0ab9b3993bbd40cf01302cb30a2a46d}{iterator\+\_\+category}} = std\+::bidirectional\+\_\+iterator\+\_\+tag
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_a2fa16b3970c6412b63946d737c44ce83}{value\+\_\+type}} = \mbox{\hyperlink{classContainer_aecb2b74c712f7d81d96c32f0d535c938}{Container\+::value\+\_\+type}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_a2cb8ea8907e78b3cd92b7a66e29340d3}{difference\+\_\+type}} = \mbox{\hyperlink{classContainer_aa25a9a2e2786a2730cd682143b8eeeb3}{Container\+::difference\+\_\+type}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_accf65522d40852a043660b624fbb5454}{pointer}} = std\+::conditional\+\_\+t$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_a73df0806c2eaa3c1964bdffa95ef6064}{Container\+::const\+\_\+pointer}}, \mbox{\hyperlink{classContainer_ad1ac3210587f9ee0c815c70f8190d394}{Container\+::pointer}} $>$
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_aff3143824dc6a467e992b24f2b559707}{reference}} = std\+::conditional\+\_\+t$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_a33c9735d911c50679b9f05f3ed06589a}{Container\+::const\+\_\+reference}}, \mbox{\hyperlink{classContainer_a76ecc6ff244a9cfcc7a5795985d1f3bd}{Container\+::reference}} $>$
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}{Node\+Type}} = \mbox{\hyperlink{structNode}{Node}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator_a2fa16b3970c6412b63946d737c44ce83}{value\+\_\+type}} $>$
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}{Node\+Pointer}} = std\+::conditional\+\_\+t$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}{Node\+Type}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}{Node\+Type}} \texorpdfstring{$\ast$}{*} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_a268027f37e8f71313d0fc60ab263700d}{Iterator}} ()
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Other\+Is\+Const, \mbox{\hyperlink{classContainer_1_1Iterator}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$\+Other\+Is\+Const \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} !\+Is\+Const$>$$>$ }\\\mbox{\hyperlink{classContainer_1_1Iterator_af48fb88580a2d41167d5b6a225b57246}{Iterator}} (\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Other\+Is\+Const}} $>$ \&\mbox{\hyperlink{classContainer_1_1Iterator}{other}}) \mbox{\hyperlink{classContainer_1_1Iterator}{noexcept}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_a186c31661e45b56142926e65012f43a6}{operator Iterator$<$ true $>$}} () \mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{noexcept}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_aff3143824dc6a467e992b24f2b559707}{reference}} \mbox{\hyperlink{classContainer_1_1Iterator_ae29daa78829136d22beb5c792b8440d0}{operator\texorpdfstring{$\ast$}{*}}} () \mbox{\hyperlink{classContainer_1_1Iterator}{const}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_accf65522d40852a043660b624fbb5454}{pointer}} \mbox{\hyperlink{classContainer_1_1Iterator_a7b352cea6a3b9f4c5be30cfedc8bf0fc}{operator-\/$>$}} () \mbox{\hyperlink{classContainer_1_1Iterator}{const}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classContainer_1_1Iterator_a8bdfcfe8093ade3da1488dee76071c16}{operator++}} ()
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \mbox{\hyperlink{classContainer_1_1Iterator_aba082c24b7e81619753f6e179e50a6e0}{operator++}} (\mbox{\hyperlink{classContainer_1_1Iterator}{int}})
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classContainer_1_1Iterator_a30091466417e4fb8f24b7c4cedc5c62a}{operator-\/-\/}} ()
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \mbox{\hyperlink{classContainer_1_1Iterator_ad24415d374f7a8392b34574edd2968d2}{operator-\/-\/}} (\mbox{\hyperlink{classContainer_1_1Iterator}{int}})
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} \mbox{\hyperlink{classContainer_1_1Iterator_ab6771c35ab25a07b6f2c10d0ccd659fe}{operator==}} (\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \&\mbox{\hyperlink{classContainer_1_1Iterator}{other}}) \mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{noexcept}}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} \mbox{\hyperlink{classContainer_1_1Iterator_a58710523963ccda1ae9242f52cb2b780}{operator!=}} (\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \&\mbox{\hyperlink{classContainer_1_1Iterator}{other}}) \mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{noexcept}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{Iterator}} (\mbox{\hyperlink{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}{Node\+Pointer}} \mbox{\hyperlink{classContainer_1_1Iterator}{node}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}{Node\+Pointer}} \mbox{\hyperlink{classContainer_1_1Iterator_a487ecd7e84b5c7a23b2714df6161b684}{current\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContainer_1_1Iterator}{class}} \mbox{\hyperlink{classContainer_1_1Iterator_aee29d97f7e87f0263024133085c28e3d}{Container}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classContainer_1_1Iterator_a2cb8ea8907e78b3cd92b7a66e29340d3}\label{classContainer_1_1Iterator_a2cb8ea8907e78b3cd92b7a66e29340d3} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::difference\+\_\+type =  \mbox{\hyperlink{classContainer_aa25a9a2e2786a2730cd682143b8eeeb3}{Container\+::difference\+\_\+type}}}
+
+\Hypertarget{classContainer_1_1Iterator_af0ab9b3993bbd40cf01302cb30a2a46d}\label{classContainer_1_1Iterator_af0ab9b3993bbd40cf01302cb30a2a46d} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!iterator\_category@{iterator\_category}}
+\index{iterator\_category@{iterator\_category}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{iterator\_category}{iterator\_category}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::iterator\+\_\+category =  std\+::bidirectional\+\_\+iterator\+\_\+tag}
+
+\Hypertarget{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}\label{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!NodePointer@{NodePointer}}
+\index{NodePointer@{NodePointer}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{NodePointer}{NodePointer}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::\+Node\+Pointer =  std\+::conditional\+\_\+t$<$\mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}{Node\+Type}}\texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}{Node\+Type}}\texorpdfstring{$\ast$}{*}$>$}
+
+\Hypertarget{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486}\label{classContainer_1_1Iterator_a325067ed73d60d83c7ad65f181571486} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!NodeType@{NodeType}}
+\index{NodeType@{NodeType}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{NodeType}{NodeType}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::\+Node\+Type =  \mbox{\hyperlink{structNode}{Node}}$<$\mbox{\hyperlink{classContainer_1_1Iterator_a2fa16b3970c6412b63946d737c44ce83}{value\+\_\+type}}$>$}
+
+\Hypertarget{classContainer_1_1Iterator_accf65522d40852a043660b624fbb5454}\label{classContainer_1_1Iterator_accf65522d40852a043660b624fbb5454} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!pointer@{pointer}}
+\index{pointer@{pointer}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::pointer =  std\+::conditional\+\_\+t$<$\mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_a73df0806c2eaa3c1964bdffa95ef6064}{Container\+::const\+\_\+pointer}}, \mbox{\hyperlink{classContainer_ad1ac3210587f9ee0c815c70f8190d394}{Container\+::pointer}}$>$}
+
+\Hypertarget{classContainer_1_1Iterator_aff3143824dc6a467e992b24f2b559707}\label{classContainer_1_1Iterator_aff3143824dc6a467e992b24f2b559707} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!reference@{reference}}
+\index{reference@{reference}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::reference =  std\+::conditional\+\_\+t$<$\mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}}, \mbox{\hyperlink{classContainer_a33c9735d911c50679b9f05f3ed06589a}{Container\+::const\+\_\+reference}}, \mbox{\hyperlink{classContainer_a76ecc6ff244a9cfcc7a5795985d1f3bd}{Container\+::reference}}$>$}
+
+\Hypertarget{classContainer_1_1Iterator_a2fa16b3970c6412b63946d737c44ce83}\label{classContainer_1_1Iterator_a2fa16b3970c6412b63946d737c44ce83} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{using}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::value\+\_\+type =  \mbox{\hyperlink{classContainer_aecb2b74c712f7d81d96c32f0d535c938}{Container\+::value\+\_\+type}}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}\label{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\+::\+Iterator$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}{Node\+Pointer}}}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+\Hypertarget{classContainer_1_1Iterator_a268027f37e8f71313d0fc60ab263700d}\label{classContainer_1_1Iterator_a268027f37e8f71313d0fc60ab263700d} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\+::\+Iterator$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_af48fb88580a2d41167d5b6a225b57246}\label{classContainer_1_1Iterator_af48fb88580a2d41167d5b6a225b57246} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Other\+Is\+Const, \mbox{\hyperlink{classContainer_1_1Iterator}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$\+Other\+Is\+Const \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} !\+Is\+Const$>$$>$ \\
+\mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\+::\+Iterator$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Other\+Is\+Const}} $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classContainer_1_1Iterator_a186c31661e45b56142926e65012f43a6}\label{classContainer_1_1Iterator_a186c31661e45b56142926e65012f43a6} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator Iterator$<$ true $>$@{operator Iterator$<$ true $>$}}
+\index{operator Iterator$<$ true $>$@{operator Iterator$<$ true $>$}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator Iterator$<$ true $>$()}{operator Iterator< true >()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{true}} $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classContainer_1_1Iterator_a58710523963ccda1ae9242f52cb2b780}\label{classContainer_1_1Iterator_a58710523963ccda1ae9242f52cb2b780} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator!}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classContainer_1_1Iterator_ae29daa78829136d22beb5c792b8440d0}\label{classContainer_1_1Iterator_ae29daa78829136d22beb5c792b8440d0} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator_aff3143824dc6a467e992b24f2b559707}{reference}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_a8bdfcfe8093ade3da1488dee76071c16}\label{classContainer_1_1Iterator_a8bdfcfe8093ade3da1488dee76071c16} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_aba082c24b7e81619753f6e179e50a6e0}\label{classContainer_1_1Iterator_aba082c24b7e81619753f6e179e50a6e0} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}++ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator}{int}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_a30091466417e4fb8f24b7c4cedc5c62a}\label{classContainer_1_1Iterator_a30091466417e4fb8f24b7c4cedc5c62a} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_ad24415d374f7a8392b34574edd2968d2}\label{classContainer_1_1Iterator_ad24415d374f7a8392b34574edd2968d2} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}-\/-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator}{int}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_a7b352cea6a3b9f4c5be30cfedc8bf0fc}\label{classContainer_1_1Iterator_a7b352cea6a3b9f4c5be30cfedc8bf0fc} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator_accf65522d40852a043660b624fbb5454}{pointer}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classContainer_1_1Iterator_ab6771c35ab25a07b6f2c10d0ccd659fe}\label{classContainer_1_1Iterator_ab6771c35ab25a07b6f2c10d0ccd659fe} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::operator}}== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classContainer_1_1Iterator}{const}} \mbox{\hyperlink{classContainer_1_1Iterator}{Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classContainer_1_1Iterator_aee29d97f7e87f0263024133085c28e3d}\label{classContainer_1_1Iterator_aee29d97f7e87f0263024133085c28e3d} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!Container@{Container}}
+\index{Container@{Container}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{Container}{Container}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator}{friend}} \mbox{\hyperlink{classContainer_1_1Iterator}{class}} \mbox{\hyperlink{classContainer}{Container}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classContainer_1_1Iterator_a487ecd7e84b5c7a23b2714df6161b684}\label{classContainer_1_1Iterator_a487ecd7e84b5c7a23b2714df6161b684} 
+\index{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}!current\_node@{current\_node}}
+\index{current\_node@{current\_node}!Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$@{Container$<$ T, Allocator $>$::Iterator$<$ IsConst $>$}}
+\doxysubsubsection{\texorpdfstring{current\_node}{current\_node}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{T}} , \mbox{\hyperlink{classContainer_1_1Iterator}{typename}} \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}}  = std\+::allocator$<$\+T$>$$>$ \\
+template$<$\mbox{\hyperlink{classContainer_1_1Iterator}{bool}} Is\+Const$>$ \\
+\mbox{\hyperlink{classContainer_1_1Iterator_ac1f97e2586c3f7e29a10799fe2977843}{Node\+Pointer}} \mbox{\hyperlink{classContainer}{Container}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{T}}, \mbox{\hyperlink{classContainer_1_1Iterator}{Allocator}} $>$\mbox{\hyperlink{classContainer_1_1Iterator_a13e12b279fa7dd6a50ad581485e18e45}{\+::\+Iterator}}$<$ \mbox{\hyperlink{classContainer_1_1Iterator}{Is\+Const}} $>$\+::current\+\_\+node\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/container/\mbox{\hyperlink{container_8h}{container.\+h}}\end{DoxyCompactItemize}
