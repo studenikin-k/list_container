@@ -1,92 +1,64 @@
+// container/nodes/node.h
 #ifndef CONTAINER_NODES_NODE_H
 #define CONTAINER_NODES_NODE_H
 
-#include <memory>
-#include <utility>
+#include <cstddef> // Для std::size_t
+#include <utility> // Для std::move
 
 template <typename T>
 struct Node {
-    T value;              // 1. Declare 'value' first
-    Node<T>* next;        // 2. Declare 'next' second
-    Node<T>* prev;        // 3. Declare 'prev' third
-    Node<T>** forward;    // 4. Declare 'forward' fourth
-    int level;            // 5. Declare 'level' fifth
-    bool is_sentinel;     // 6. Declare 'is_sentinel' last (or at least after members it depends on)
+    T value;
+    Node<T>* next; // For DLL part
+    Node<T>* prev; // For DLL part
+    Node<T>** forward; // For Skip List part
+    int level;
+    bool is_sentinel; // True if it's the sentinel node
 
-    // Constructor for regular nodes (value by const reference)
-    explicit Node(const T& val, int node_level)
-        : value(val),         // Initialize in declared order
-          next(nullptr),      // Initialize in declared order
-          prev(nullptr),      // Initialize in declared order
-          forward(new Node<T>*[node_level + 1]), // Initialize in declared order
-          level(node_level),  // Initialize in declared order
-          is_sentinel(false)  // Initialize in declared order
-    {
-        // Проверка node_level >= 0 для безопасного выделения
-        if (node_level < 0) {
-            // В идеале, бросить исключение или обработать как ошибку
-            // Но для Skip List уровень всегда должен быть >= 0
-            // Здесь предполагаем, что `get_random_level()` обеспечивает валидный `node_level`.
-        }
-        for (int i = 0; i <= node_level; ++i) {
+    // Убедитесь, что MAX_SKIP_LEVEL определен где-то, например, в Container
+    // или передан как параметр шаблона в Node, если Node не инстанцируется в Container.
+    // Для простоты, если MAX_SKIP_LEVEL константа, ее можно захардкодить здесь,
+    // но лучше использовать значение из Container.
+    // Допустим, она будет 16, как в Container.
+    static constexpr int MAX_NODE_LEVEL = 16; // Должен совпадать с Container::MAX_SKIP_LEVEL
+
+    // Constructor for regular nodes
+    Node(const T& val, int node_level) :
+        value(val), next(nullptr), prev(nullptr), level(node_level), is_sentinel(false) {
+        forward = new Node<T>*[MAX_NODE_LEVEL]; // Выделяем память для всех уровней
+        for (int i = 0; i < MAX_NODE_LEVEL; ++i) { // Инициализируем все nullptr
             forward[i] = nullptr;
         }
     }
 
-    // Constructor for regular nodes (value by rvalue reference - for moving)
-    explicit Node(T&& val, int node_level)
-        : value(std::move(val)), // Initialize in declared order
-          next(nullptr),         // Initialize in declared order
-          prev(nullptr),         // Initialize in declared order
-          forward(new Node<T>*[node_level + 1]), // Initialize in declared order
-          level(node_level),     // Initialize in declared order
-          is_sentinel(false)     // Initialize in declared order
-    {
-        if (node_level < 0) {
-            // См. комментарий выше
-        }
-        for (int i = 0; i <= node_level; ++i) {
+    // Constructor for regular nodes (move)
+    Node(T&& val, int node_level) :
+        value(std::move(val)), next(nullptr), prev(nullptr), level(node_level), is_sentinel(false) {
+        forward = new Node<T>*[MAX_NODE_LEVEL];
+        for (int i = 0; i < MAX_NODE_LEVEL; ++i) {
             forward[i] = nullptr;
         }
     }
 
     // Constructor for sentinel node
-    explicit Node(bool sentinel_flag, int max_forward_levels_size)
-        : value(), // Default-construct T (for int this is 0, for string this is "")
-          next(nullptr),
-          prev(nullptr),
-          forward(nullptr), // Initialize forward here, then conditionally allocate below
-          level(max_forward_levels_size - 1), // Sentinel has level MAX_SKIP_LEVEL - 1 (or 0 if MAX_SKIP_LEVEL=1)
-          is_sentinel(sentinel_flag)
-    {
-        if (sentinel_flag) {
-            // Allocate memory for the forward array for MAX_SKIP_LEVEL levels
-            // if this is a sentinel node.
-            // Note: `forward` was initialized to nullptr in the initializer list
-            // to conform to the order, now we reassign it if it's a sentinel.
-            // Проверка max_forward_levels_size для безопасного выделения
-            if (max_forward_levels_size <= 0) {
-                // Это критическая ошибка, MAX_SKIP_LEVEL должен быть > 0
-                // Можно бросить исключение или вызвать terminate
-                forward = nullptr; // Убедимся, что forward по-прежнему nullptr, если size невалиден
-                // или бросить std::bad_alloc / std::length_error
-            } else {
-                forward = new Node<T>*[max_forward_levels_size];
-                for (int i = 0; i < max_forward_levels_size; ++i) {
-                    forward[i] = nullptr; // Initialize
-                }
-            }
+    Node(bool sentinel = true, int node_level = MAX_NODE_LEVEL) : // Sentinel всегда имеет MAX_NODE_LEVEL
+        value(T()), next(nullptr), prev(nullptr), level(node_level), is_sentinel(sentinel) {
+        forward = new Node<T>*[MAX_NODE_LEVEL];
+        for (int i = 0; i < MAX_NODE_LEVEL; ++i) { // Инициализируем все nullptr
+            forward[i] = nullptr;
         }
     }
 
-    // Destructor
     ~Node() {
-        delete[] forward; // Free memory allocated for the forward array
-        // The value (T value) is destructed automatically
+        delete[] forward;
     }
 
-    // Default constructor is deleted, as there are custom ones.
-    Node() = delete; // Disallow default constructor
+    // Удаляем конструктор копирования и оператор присваивания копированием,
+    // чтобы избежать двойного удаления или некорректного копирования.
+    // Nodes должны управляться аллокатором контейнера.
+    Node(const Node&) = delete;
+    Node& operator=(const Node&) = delete;
+    Node(Node&&) = delete;
+    Node& operator=(Node&&) = delete;
 };
 
 #endif // CONTAINER_NODES_NODE_H
